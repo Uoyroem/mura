@@ -1,0 +1,13 @@
+[project]
+name = "mura"
+version = "0.1"
+authors = []
+requires-python = "~=3.10"
+dependencies = [
+    "fastapi[all]",
+    "SQLAlchemy",
+    "alembic"
+]
+
+[tool.setuptools]
+py-modules = []
