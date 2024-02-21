@@ -1,3 +1,5 @@
+import datetime
+
 import sqlalchemy
 import sqlalchemy.ext.asyncio
 import sqlalchemy.orm
@@ -21,5 +23,21 @@ class Base(sqlalchemy.orm.DeclarativeBase, sqlalchemy.ext.asyncio.AsyncAttrs):
 
 class User(Base):
     __tablename__ = "users"
-    email: str = sqlalchemy.orm.mapped_column(sqlalchemy.String(512))
-    password_hash: str
+    id: sqlalchemy.orm.Mapped[int] = sqlalchemy.orm.mapped_column(primary_key=True, autoincrement=True)
+    email: sqlalchemy.orm.Mapped[str] = sqlalchemy.orm.mapped_column(sqlalchemy.String(512))
+    password: sqlalchemy.orm.Mapped[str]
+    first_name: sqlalchemy.orm.Mapped[str | None] = sqlalchemy.orm.mapped_column(sqlalchemy.String(128))
+    last_name: sqlalchemy.orm.Mapped[str | None] = sqlalchemy.orm.mapped_column(sqlalchemy.String(128))
+    address: sqlalchemy.orm.Mapped[str | None]
+    birthday: sqlalchemy.orm.Mapped[datetime.date | None]
+
+
+class Product(Base):
+    __tablename__ = "products"
+    id: sqlalchemy.orm.Mapped[int] = sqlalchemy.orm.mapped_column(primary_key=True, autoincrement=True)
+
+
+class Book(Base):
+    __tablename__ = "books"
+    id: sqlalchemy.orm.Mapped[int] = sqlalchemy.orm.mapped_column(primary_key=True, autoincrement=True)
+

@@ -6,3 +6,4 @@ build
 **/__pycache__
 alembic/versions/*
 !**/.gitkeep
+*.sqlite3

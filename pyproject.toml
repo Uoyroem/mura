@@ -6,7 +6,8 @@ requires-python = "~=3.10"
 dependencies = [
     "fastapi[all]",
     "SQLAlchemy",
-    "alembic"
+    "alembic",
+    "aiosqlite"
 ]
 
 [tool.setuptools]
